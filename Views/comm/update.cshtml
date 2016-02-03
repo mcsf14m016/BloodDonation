@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "update";
+}
+@model Blood_Donation.Models.comment
+
+<h2>update</h2>
+<form action ="/comm/update/@Model.Id" mathod="post">
+    name<input type="text" name="name" value="@Model.name" />
+    name<input type="text" name="comment" value="@Model.comment1" />
+    <input type="submit" value="update" />
+</form>

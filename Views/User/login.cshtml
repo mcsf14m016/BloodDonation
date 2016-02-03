@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "login";
+}
+
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<html>
+<head>
+ @*   <script>
+        $(document).ready(function () {
+            $("#login").click(function () {
+                var inp = $("#name");
+                if ($("#name").val().length==0)
+                {
+                    alert("Please Enter username");
+                }
+                if ($("#password").val().length == 0) {
+                    alert("Please Enter password");
+                }
+            });
+        });
+
+    </script>*@
+</head>
+<body>
+    <div class="row" id="1">
+        <div class="col-md-12" style="margin-left: 20px">
+            <h2 id="tophead" align="center">Donate Blood to save lives</h2>
+        </div>
+    </div>
+
+    <div class="row" id="2">
+        <div class="col-md-6"></div>
+        <div class="col-md-6" style="margin-bottom: 50px; margin-top: 50px" >
+            <div class="jumbotron" style="background-color:white">
+            <h3 id="loginhead"><u>Login to Blood Donation Account</u></h3>
+           
+             <table align="center" style="height:150px">
+                <form method="post" action="/User/login">
+                    <tr>
+                        <td>
+                            @Html.Label("Username: ")
+                        </td>
+                        <td>
+                        
+                            <input id="name" name="name" type="text" value="@ViewBag.abc" class="form-control" style="width:250px" maxlength="20" required="required" placeholder="username" />
+                         
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.Label("Password: ")
+                        </td>
+                        <td>
+                            <input id="password" name="password" type="password" value="" class="form-control" style="width:250px" maxlength="20" required="required" placeholder="password" />
+                        </td>
+                    </tr>
+
+                    <tr align="center">
+                        <td></td>
+                        <td>
+                                <button id="login" type="submit" class="btn" style="width:100px; color:black">Login</button>
+                                <button id="signup" type="button" class="btn" style="width:100px; color:black">Sign Up</button>
+                        </td>
+                    </tr>
+                </form>
+            </table>
+            </div>    
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$('#tophead').css({'color':'red','text-shadow':'1px 1px 2px black,0 0 25px darkblue'})
+            $('div#1 #tophead, div#2 #loginhead').css({ 'color': 'red', 'text-shadow': '1px 1px 2px black,0 0 25px darkblue' })
+        });
+    </script>
+
+
+@*    @section menu
+    {
+    <h1>this is section</h1>
+    }*@
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@*@model IEnumerable<Blood_Donation.Models.user>*@
+@{
+    ViewBag.Title = "allrecords";
+}
+@*@using Blood_Donation.Models*@
+
+<div style="grid-column-align:center;" >
+<h2 align="center">All Donor Records</h2>
+    <table align="center" border="1">
+        <tr align="center">
+            <th>Name</th>
+            <th>F.Name</th>
+            <th>CNIC#</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Blood Group</th>
+            <th>Cell No</th>
+            <th>Phone No</th>
+            <th>Address</th>
+            <th>Password</th>
+        </tr>
+        @foreach (var v in Model)
+        {
+            <tr style="background-color:deepskyblue">
+                <td>@v.name</td>
+                <td>@v.fname</td>
+                <td>@v.cnic</td>
+                <td>@v.age</td>
+                <td>@v.gender</td>
+                <td>@v.blood</td>
+                <td>@v.cell</td>
+                <td>@v.phone</td>
+                <td>@v.city</td>
+                <td>@v.password</td>
+                <td><a href="/User/AdimEdit/@v.Id">Update</a></td>
+                <td><a href="/User/AdminDelete/@v.Id">Delete</a></td>
+            </tr> 
+        }
+    </table>    
+</div>
+<div style="background-color:brown">
+     <form method="post" action="/User/AdimEdit">
+    <table align="center" style="color:black">
+        <tr> <td>CNIC # to update:</td><td><input id="cnic" name="cnic" type="text" placeholder="3660123921915"/> </td></tr>
+        <tr><td></td><td><input id="update" type="submit" value="Update Account" /></td></tr>
+    </table>
+    </form>
+</div>

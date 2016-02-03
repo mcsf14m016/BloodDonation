@@ -1,0 +1,177 @@
+﻿@{
+    ViewBag.Title = "signup";
+}
+@using Blood_Donation.Models
+<html>
+
+
+
+    
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          
+            $('#signup').click(function () {
+                if ($('#password').val() != $('#password1').val()) {
+                    alert("Password & conform password are not same! ");
+                    $('#password').val("");
+                    $('#password1').val("");
+
+                    $('#password').focus();
+
+                }
+                if ($('#password').val().length() < 6) {
+                    alert("Password must be 6 or more characters! ");
+                    $('#password').val("");
+                    $('#password1').val("");
+                    $('#password').focus();
+
+                }
+            });
+            
+            $('#tophead').css({ 'color': 'red', 'text-shadow': '1px 1px 2px black,0 0 25px blue' })
+            $('#heading').css({ 'letter-spacing': '1px', 'color': 'red', 'text-shadow': '1px 1px 2px black,0 0 25px darkblue' })
+
+        });
+    </script>
+
+<body>
+    <div class="row">
+        <div class="col-md-12" style="margin-left: 20px">
+            <h2 align="center" id="tophead">Donate Blood to save lives</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="jumbotron" style="background-color:#fef6f8">
+
+                <h3 align="center" id="heading"><u>SignUp to Blood Donation</u></h3>
+
+                <table align="center" style="color: red">
+                    <form method="post" action="/User/saveSignup" enctype="multipart/form-data">
+                        <tr>
+                            <h4>
+                            <td>
+                                <input type="file" name="image" required="required" /></td>
+                            <td>
+                                <h4>
+                                    <img src="~/Images/User-icon.png" height="100" width="100" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <h4>
+                                <td>
+                                    @Html.Label("Enter Your Name :")
+                                </td>
+                                <td>
+                                    <input id="name" name="name" type="text" class="form-control" style="width: 250px" maxlength="20" required="required" /></td>
+                            </h4>
+                        </tr>
+                        <tr>
+                            <h4>
+                                <td>
+                                    @Html.Label("Enter Your Date Of Birth :")
+                                </td>
+                                <td>
+                                    <input id="DOB" name="DOB" type="date" class="form-control" style="width: 250px" required="required" />
+                            </h4>
+                            <tr>
+                                <h4>
+                                    <td>
+                                        @Html.Label("Select Your Gender :")
+                                    </td>
+                                    <td>
+                                        <select id="gender" name="gender" class="form-control" style="width: 250px">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select>
+                                    </td>
+                                </h4>
+                            </tr>
+                        <tr>
+                            <h4>
+                                <td>
+                                    @Html.Label("Select Your Blood Group :")
+                                </td>
+                                <td>
+                                    <select id="blood" name="blood" required="required" class="form-control" style="width: 250px">
+                                        <option>A+</option>
+                                        <option>A-</option>
+                                        <option>B+</option>
+                                        <option>B-</option>
+                                        <option>AB+</option>
+                                        <option>AB-</option>
+                                        <option>O+</option>
+                                        <option>O-</option>
+                                    </select>
+                                </td>
+                            </h4>
+                        </tr>
+                        <tr>
+                            <h4>
+                                <td>
+                                    @Html.Label("Select Your Blood Donation Status :")
+                                </td>
+                                <td>
+                                    <select id="status" name="status" required="required" class="form-control" style="width: 250px">
+                                        <option>Online</option>
+                                        <option>Offline</option>
+                                    </select>
+                                </td>
+                            </h4>
+                        </tr>
+
+                        <tr>
+                            <h4>
+                                <td>
+                                    @Html.Label("Enter Your CellNo :")
+                                </td>
+                                <td>
+                                    <input id="cell" name="cell" class="form-control" min="1111111111" max="99999999999" style="width: 250px" type="number" required="required" /></td>
+                            </h4>
+                        </tr>
+                        <tr>
+                            <h4>
+                                <td>
+                                    @Html.Label("Enter Your City/Area:")
+                                </td>
+                                <td>
+                                    <input id="city" name="city" type="text" class="form-control" style="width: 250px" maxlength="20" required="required" placeholder="e.g Lahore" />
+                                </td>
+                            </h4>
+                        </tr>
+                        <tr>
+                            <h4>
+                                <td>
+                                    @Html.Label("Enter Your Password :")
+                                </td>
+                                <td>
+                                    <input id="password" name="password" class="form-control" style="width: 250px" minlength="7"  maxlength="20" type="password" required="required" />
+                                </td>
+                            </h4>
+                        </tr>
+                        <tr>
+                            <h4>
+                                <td>
+                                    @Html.Label("Enter Your Password again :")
+                                </td>
+                                <td>
+                                    <input id="password1" name="password1" class="form-control" style="width: 250px" maxlength="20" type="password" required="required" />
+                                </td>
+                            </h4>
+                        </tr>
+                        <tr align="center">
+                            <td></td>
+                            <td>
+                                <button id="signup" align="center" style="width:200px ; color:black" class="btn" type="submit" value="Sign Up">Sign Up</button></td>
+                        </tr>
+                    </form>
+                </table>
+
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</body>
+</html>

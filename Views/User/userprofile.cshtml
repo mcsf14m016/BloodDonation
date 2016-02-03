@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+@using Blood_Donation.Models
+@{
+    //var data = Session["user"] as Blood_Donation.Models.user;
+    var u = (Blood_Donation.Models.user)Session["user"];
+    }
+
+@*<h2 style="margin-left: 50px; margin-top: 20px">Hi! @u.name your Donation status is @u.status</h2>
+<div class="row" style="border: double; margin-left: 50px; margin-right: 50px; margin-top: 50px; margin-bottom: 50px">
+ 
+       <div class="col-md-4" style="font-size:12px">
+        <h3>Name :@u.name </h3>
+        <h4>DOB # :@u.DOB</h4>
+        <h3>Gender :@u.gender</h3>
+    </div>
+    <div class="col-md-4">
+        <h3>Blood :@u.blood</h3>
+        <h3>Cell # :@u.cell</h3>
+        <h3>Address :@u.city</h3>
+    </div>
+    <div class="col-md-4">
+        <h3>image :</h3>
+        <h3>
+            <img class="img-responsive" src="~/Images/img_@(Session["Id"]).jpg" height="100" width="100" /></h3>
+    </div>
+</div>
+
+
+<div class="row" align="center" style="margin-bottom:50px;">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+        <form method="post" action="/User/login">
+            <div class="btn-group">
+                <button id="update" name="update" type="submit" class="btn btn-success"><a href="/User/AdimEdit/@Session["Id"]"  font-size: 15px">Update Profile</a></button>
+            </div>
+        </form>
+    </div>
+</div>*@
+    
+
+
+
+
+
+
+
+
+
+<hr class="divider"></hr>
+<hr class="divider"></hr>
+
+<h2 style="margin-left: 50px; margin-top: 20px">Hi! @u.name your Donation status is @u.status</h2>
+@*<div class="row" style="border:double; margin-left: 50px; margin-right: 50px; margin-top: 50px; margin-bottom: 30px">*@
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10" style=" margin-left: 50px; margin-right: 50px; margin-top: 50px; margin-bottom: 30px">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" align="center" style="background-color: ThreeDLightShadow; color: black"><b>@u.name</b></div>
+                    <div class="panel-body">
+                        <div class="row" style="color: black">
+                            <div class="col-md-5">
+                                <h4>Name : @u.name</h4>
+                                <h4>DOB : @u.DOB</h4>
+                                <h4>Gender : @u.gender</h4>
+                            </div>
+                            <div class="col-md-4">
+                                <h4>Blood : @u.blood</h4>
+                                <h4>Cell # : @u.cell</h4>
+                                <h4>Address : @u.city</h4>
+                            </div>
+                            <div class="col-md-3">
+                                <img src="~/Files/profile_image_@(u.Id).jpg" class="img-circle" style="height:150px; width:150px; margin-top: 5px; margin-bottom:10px">
+                            </div>
+                        </div>
+                        <div class="panel-footer" align="center" style="background-color: burlywood">
+                            <a href="/User/show_messages">
+                                <button class="btn" style="width: 150px; margin:4px; height: 40px; color: black">Messages</button></a>
+                            <a href="/User/AdimEdit/@u.Id">
+                                <button class="btn" style="width: 150px; height: 40px; color: black">Update Profile</button></a>
+
+                            @*<button id="update" name="update" type="submit" class="btn" style="width: 150px; height: 40px ; color:black"><a href="/User/AdimEdit/@u.Id"  font-size: 15px">Update Profile</a></button>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+@*</div>*@
+
+<hr class="divider"></hr>
+<hr class="divider"></hr>

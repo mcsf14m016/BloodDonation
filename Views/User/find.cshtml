@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "find";
+}
+@using Blood_Donation.Models
+
+<div class="row" id="1">
+    <div class="col-md-12" style="margin-left: 20px">
+       <h2 id="tophead" align="center" style="color:red">Donate Blood to save lives</h2>
+    </div>
+</div>
+
+<div class="row" id="2">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="jumbotron" style="background-color:whitesmoke">
+            <h3 id="find" align="center"><u>Find Required Blood</u></h3>
+            <table align="center" height="200">
+                <form method="post" action="/User/find">
+                    <tr>
+                        <td>@Html.Label("Enter Your City Name :")</td>
+                        <td><input type="text" class="form-control" id="area" name="area" style="width: 200px" maxlength="20" @*required="required"*@></td>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.Label("Required Blood Group :")</td>
+                        <td>
+                            <select required="required" class="form-control" id="bloodSelection" name="blood" style="width: 200px">
+                                <option>A+</option>
+                                <option>A-</option>
+                                <option>B+</option>
+                                <option>B-</option>
+                                <option>AB+</option>
+                                <option>AB-</option>
+                                <option>O+</option>
+                                <option>O-</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <h4>
+                            <td><label for="email">Search By :</label></td>
+                            <td>
+                                <select id="searchselection" name="searchby" required="required" class="form-control" style="width: 200px">
+                                    <option>Blood Group</option>
+                                    <option>City/Area</option>
+                                    <option>Both</option>
+                                </select>
+                            </td>
+                        </h4>
+                    </tr>
+
+                    <tr style="color:black">
+                        <td></td>
+                        <td>
+                            <button id="fin" style="width:100px" type="submit" name="submit" class="btn">Find</button>
+                            <a href="/Home/Index" style="color:black"><button style="width:100px" type="button" name="home" class="btn">Cancel</button>
+                        </td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+@using Blood_Donation.Models
+@{
+    //var data = Session["user"] as Blood_Donation.Models.user;
+    var u = (Blood_Donation.Models.user)Session["user"];
+ }
+
+
+<hr class="divider"></hr>
+<hr class="divider"></hr>
+<h4>@ViewBag.abc</h4>
+<div id="inputs1">
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            @foreach (var v in Model)
+            { 
+                <div class="col-sm-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" style="background-color: ThreeDLightShadow; color: red">@v.name</div>
+                        <div class="panel-body">
+                            <div class="row" style="color: black">
+                                <div class="col-md-4">
+                                    <h5>Name:@v.name</h5>
+                                    <h5>DOB:@v.DOB</h5>
+                                    <h5>Gender:@v.gender</h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Blood:@v.blood</h5>
+                                    <h5>Cell #:@v.cell</h5>
+                                    <h5>Address:@v.city</h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="~/Files/profile_image_@(v.Id).jpg" class="img-circle" style="height:100px; width:100px; margin-top: 5px; margin-bottom:10px">
+                                </div>
+                            </div>
+                            <div class="panel-footer" style="background-color: burlywood">
+                                <a href="/User/message/@v.Id" style="color:black">            
+                                    <button class="btn" id="msg" style="width: 150px; height: 40px">Send Request Msg.</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+</div>
+
+<hr class="divider"></hr>
+<hr class="divider"></hr>
+
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#find').css({'color':'red','text-shadow':'1px 1px 2px black,0 0 25px blue'})
+            $('div#1 #tophead, div#2 #loginhead').css({ 'letter-spacing': '1px' , 'color': 'red', 'text-shadow': '1px 1px 2px black,0 0 25px darkblue' })
+        });
+        //$('#fin').click(function () {
+        //    if($('#area').val(""))
+        //    {
+        //        $('#area').va("Not available");
+        //    }
+        //});
+
+    </script>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="wtf-6" />
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/Style.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+
+
+
+@if(IsSectionDefined("menu"))
+  {  
+  @RenderSection("menu",false)
+  }
+
+
+
+
+<body style="background-color:darkred; background-image: url(/Images/loginp.jpg)">
+    <div class="container" style="background-color:white">
+        <nav class="navbar navbar-inverse" style="background-color:darkred">
+            <div class="cointainer-fluid">
+                <!--logo-->
+                <div class="navbar-header" style=" background-color:darkred; margin-left: 5px; margin-bottom: 10px; margin-right: 30px; margin-top: 5px;">
+                    <img src="~/Images/Blood_Compatibility.svg.png" style="width: 250px; height: 150px" />
+                </div>
+
+                <!--main items-->
+                <div class="navbar-header" id="menu"  style="background-color:darkred" align="center">
+                    <h1 id="h1" style="margin-bottom: 50px; margin-top: 20px; color: white">Blood Donation System</h1>
+                    <ul class="nav navbar-nav" style="color: white;">
+                        <li @*class="active"*@ style="background-color:darkred" ><a href="/Home/Index">Home</a></li>
+                        <li><a href="/Home/about">About Us</a></li>
+                        <li><a href="/User/find">Find Blood</a></li>
+                        <li><a href="/Home/services">Our services</a></li>
+                        <li><a href="/Home/contect">Contect us</a></li>
+
+                        @if (Session["user"] == null)
+                        {
+                            <li><a href="/User/login">Login</a></li>
+                            <li><a href="/User/signup">Signup</a></li>
+                        }
+                        @if (Session["user"] != null)
+                        {
+                            <li><a href="/User/logout">Logout</a></li>
+                            if (Session["Role"] == "Admin")
+                            {
+                                <li><a href="/User/userprofile">Profile</a></li>    
+                            }
+                            else
+                            {
+                                <li><a href="/User/adminprofile">Profile</a></li>                                                                                             
+                            }
+                        }
+                       
+                        @*<li><a href="/User/signup">Signup</a></li>*@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        @RenderBody()
+
+        <div class="footer" style="background-color:#630000" align="center">
+            <br />
+            <div class="right_footer" align="center">
+                <a href="@Url.Action("Index", "Home")" style="background-color:white ">home</a>
+                <a href="@Url.Action("about", "Home")" style="background-color:white">about us</a>
+                <a href="@Url.Action("services", "Home")" style="background-color:white">services</a>
+                <a href="@Url.Action("comments", "Home")" style="background-color:white">comments</a>
+                <a href="@Url.Action("contect", "Home")" style="background-color:white">contact</a>
+            </div>
+            <p align="center">
+                Blood Donation System<br />
+                <small style="color: red">Contact us : 03057656541
+                <br />
+                    mcsf14m016@pucit.edu.pk</small>
+            </p>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

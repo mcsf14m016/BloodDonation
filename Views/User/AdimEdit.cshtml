@@ -1,0 +1,44 @@
+﻿@model Blood_Donation.Models.user
+
+@{
+    ViewBag.Title = "AdimEdit";
+}
+
+<h2>AdimEdit</h2>
+<form action="/User/AdminEditConfig/@Model.Id " method="post">
+<h2 align="center">Edit your profile</h2>
+<table align="center" height="600" style="color:red">
+    <tr><h4><td><input type="file" name="profilephoto"/></td>
+        
+    <tr><h4><td>Enter Your Name :</td> <td><input id="username" name="name" type="text" value="@Model.name" required="required" placeholder="e.g Tahir" /></td> </h4></tr>
+    <tr><h4><td>Enter Your Age :</td> <td>  <input id="age" name="age" type="text" value="@Model.age" required="required" placeholder="22"/> </h4>
+    <tr><h4><td>Select Your Gender :</td> <td> 
+    <select id="genderSelection" name="gender">
+            <option>Male</option>
+            <option>Female</option>
+    </select> </td></h4></tr>
+    <tr><h4><td>Select Your Blood Group :</td> <td> 
+    <select id="bloodSelection" name="blood">
+        <option>A+</option>
+        <option>A-</option>
+        <option>AB+</option>
+        <option>AB-</option>
+        <option>B+</option>
+        <option>B-</option>
+        <option>O+</option>
+        <option>O-</option>
+</select>  </td> </h4></tr>
+
+    <tr><h4><td>Select Your Blood Donation Status :</td> <td> 
+<select id="status" name="status" required="required">
+        <option>Online</option>
+        <option>Offline</option>
+</select>  </td> </h4></tr>
+
+<tr><h4><td>Enter Your CellNo :</td> <td> <input id="cellno" name="cell" type="text" value="@Model.cell" required="required" placeholder="03057656541"/></td> </h4></tr>
+<tr><h4><td>Enter Your PhoneNo :</td> <td> <input id="phoneno" name="phone" type="text" value="@Model.phone" 0421234567/></td> </h4></tr>
+<tr><h4><td>Enter Your City :</td> <td> <input id="address" name="city" type="text" value="@Model.city" required="required" placeholder="e.g Lahore"/> </td> </h4></tr>
+<tr><h4><td>Enter Your Password :</td> <td> <input id="password" name="password" type="password" value="@Model.password" required="required" /> </td> </h4></tr>
+<tr><td></td><td><input id="Submit" name="submit" type="submit" value="Update" /></td></tr>
+</table>
+    </form>

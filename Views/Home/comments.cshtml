@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "comments";
+}
+@using Blood_Donation.Models;
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<html>
+    <head>
+        <script>
+            $(document).ready(function () {
+               $("#submit").click(function () {
+                    if ($("#comment").val().length == 0) {
+                        alert("Please write your comment to submit!");
+                    }
+                });
+            });
+
+        </script>
+</head>
+<body>
+<div style="grid-column-align:center; background-color:white" >
+    <h2 align="left" style="color:purple">Donate Blood to save lives</h2>
+<h3 align="center"><u>Comments for the website</u></h3>
+    <table align="center">
+        <tr><td><u><b> Comment By </b></u></td><td><u><b> Comment </b></u> </td></tr>
+        @foreach(comment c in Model)
+        {
+            <tr><td>@c.name </td><td style="color:black"> @c.comment1</td></tr>         
+        }
+        <form method="post" action="/Home/addcomment">
+            <tr>
+                <td><input id="name" name="name" type="text" /></td>
+                <td>
+                    <textarea style="resize: none" rows="3" cols="80" id="comment" name="comment"></textarea></td>
+            </tr>
+            <tr></td></td><td>
+                <input id="submit" type="submit" value="comment" />
+            </tr>
+        </form>
+    </table>
+</div>
+    </body>
+    </html>

@@ -1,0 +1,13 @@
+﻿@*@model Blood_Donation.Models.mess*@
+<div style="grid-column-align:center" >
+<h2 align="center">Messages</h2>
+    <table align="center">
+        @foreach (var vv in Model)
+        {
+            <tr>
+                <td>@vv.msg</td>
+                <td><a href="/User/msgDelete/@vv.mId">Delete</a></td>
+            </tr> 
+        }
+    </table>    
+</div>

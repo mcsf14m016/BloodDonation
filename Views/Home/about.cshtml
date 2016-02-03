@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "about";
+}
+
+
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#head1').css({'color':'red','text-shadow':'1px 1px 2px black,0 0 25px darkblue'})
+            $('div#1 #h1, div#1 #h3').css({ 'color': 'red', 'text-shadow': '1px 1px 2px black,0 0 25px blue' })
+            $('div#1 #h2').css({ 'color': 'red', 'text-shadow': '1px 1px 2px black,0 0 25px #00ffff' })
+            //$('div#2 #p').css({ 'color': 'red', 'text-shadow': '1px 1px red,0 0 25px milky' })
+        });
+    </script>
+
+<div class="row" id="1">
+    <div class="col-md-12" style="margin-left: 20px">
+        <h1 align="center" id="head1" style="color: red">GOD HELP THOSE WHO HELP OTHERS</h1>
+        <h2 align="left" id="h2" style="color: red">Donate Blood to save lives</h2>
+        <h3 align="left" id="h3" ><u>About Us:</u></h3>
+    </div>
+</div>
+<div class="row" id="2">
+    <div class="col-md-6">
+        <p id="p" style="font-size:medium; margin-left: 40px; margin-right:50px; margin-top:10px;">
+            Founded in 2015, Blood donation site has grown
+     to become the largest online blood donation of blood.
+     The website is built on a unique idea: How to find any blood group is very simple. And if a person want to
+    donate blood, he can register freely to the list of donor in our web. Our main aim of developing this web is to
+    help needy people. A seeker of blood can search his required blood by giving his city name and blood group.
+       <br /> For more information <a href="/Home/contect" style="background-color:bisque; color:blue; font-size:15px">Contect Us</a>
+        </p>
+        <div class="col-md-6">
+            <img  class="img-responsive" src="~/Images/images.jpg" style="width: 450px; height: 220px; margin-left: 40px; margin-right: 50px; margin-top: 10px; margin-bottom:60px" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <img class="img-responsive" src="~/Images/Blood-Drive-Featured-Image-01.png" style="width:450px; height:400px; margin-left: 40px; margin-right:50px; margin-top:10px;margin-bottom:60px"/>
+    </div>
+</div>
