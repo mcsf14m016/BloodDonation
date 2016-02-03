@@ -4,25 +4,27 @@
 
 @using Blood_Donation.Models
 
-<h2 style="margin-left: 50px; margin-top: 20px">Hi! @Session["name"] your Donation status is @Session["status"]</h2>
+@using Blood_Donation.Models
+@{
+    var u = (Blood_Donation.Models.user)Session["user"];
+    }
+
+<h2 style="margin-left: 50px; margin-top: 20px">Hi! @u.name your Donation status is @u.status</h2>
 <div class="row" style="border: double; margin-left: 50px; margin-right: 50px; margin-top: 50px; margin-bottom: 50px">
     <div class="col-md-4">
-        <h3>Name :@Session["name"] </h3>
-        <h3>Father's Name :@Session["fname"] </h3>
-        <h3>CNIC # :@Session["cnic"].</h3>
-        <h3>Age :@Session["age"]</h3>
+        <h3>Name :@u.name </h3>
+        <h3>Gender :@u.gender</h3>
+        <h3>Blood :@u.blood</h3>        
     </div>
     <div class="col-md-4">
-        <h3>Gender :@Session["gender"]</h3>
-        <h3>Blood :@Session["blood"]</h3>
-        <h3>Cell # :@Session["cell"]</h3>
-        <h3>Address :@Session["city"]</h3>
+        <h3>Cell # :@u.cell</h3>
+        <h3>Address :@u.city</h3>
     </div>
-    <div class="col-md-4">
+    @*<div class="col-md-4">
         <h3>image :</h3>
         <h3>
             <img class="img-responsive" src="~/Images/img_@(Session["Id"]).jpg" height="100" width="100" /></h3>
-    </div>
+    </div>*@
 </div>
 
 <div class="row" align="center" style="margin-bottom:50px;">
@@ -31,7 +33,7 @@
     <div class="col-md-6">
         <form method="post" action="/User/login">
             <div class="btn-group">
-                <button id="update" name="update" type="submit" class="btn btn-success"><a href="/User/AdimEdit/@Session["Id"]"  font-size: 15px">Manage Profile</a>@*Update Profile*@</button>
+                <button id="update" name="update" type="submit" class="btn btn-success"><a href="/User/AdimEdit/@u.Id"  font-size: 15px">Manage Profile</a>@*Update Profile*@</button>
                 <button id="accounts" name="accounts" type="button" class="btn btn-primary">
                     <a href="/User/allrecords"  font-size: 15px">Manage Accounts</a>
                     </button>

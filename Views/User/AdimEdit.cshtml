@@ -4,6 +4,12 @@
     ViewBag.Title = "AdimEdit";
 }
 
+@using Blood_Donation.Models
+@{
+    //var data = Session["user"] as Blood_Donation.Models.user;
+    var u = (Blood_Donation.Models.user)Session["user"];
+    }
+
 <h2>AdimEdit</h2>
 <form action="/User/AdminEditConfig/@Model.Id " method="post">
 <h2 align="center">Edit your profile</h2>
@@ -11,7 +17,6 @@
     <tr><h4><td><input type="file" name="profilephoto"/></td>
         
     <tr><h4><td>Enter Your Name :</td> <td><input id="username" name="name" type="text" value="@Model.name" required="required" placeholder="e.g Tahir" /></td> </h4></tr>
-    <tr><h4><td>Enter Your Age :</td> <td>  <input id="age" name="age" type="text" value="@Model.age" required="required" placeholder="22"/> </h4>
     <tr><h4><td>Select Your Gender :</td> <td> 
     <select id="genderSelection" name="gender">
             <option>Male</option>
@@ -36,7 +41,6 @@
 </select>  </td> </h4></tr>
 
 <tr><h4><td>Enter Your CellNo :</td> <td> <input id="cellno" name="cell" type="text" value="@Model.cell" required="required" placeholder="03057656541"/></td> </h4></tr>
-<tr><h4><td>Enter Your PhoneNo :</td> <td> <input id="phoneno" name="phone" type="text" value="@Model.phone" 0421234567/></td> </h4></tr>
 <tr><h4><td>Enter Your City :</td> <td> <input id="address" name="city" type="text" value="@Model.city" required="required" placeholder="e.g Lahore"/> </td> </h4></tr>
 <tr><h4><td>Enter Your Password :</td> <td> <input id="password" name="password" type="password" value="@Model.password" required="required" /> </td> </h4></tr>
 <tr><td></td><td><input id="Submit" name="submit" type="submit" value="Update" /></td></tr>
